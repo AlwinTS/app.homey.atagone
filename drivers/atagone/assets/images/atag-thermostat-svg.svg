@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#000000"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main body - square with rounded corners -->
+  <rect x="75" y="75" width="450" height="450" rx="50" ry="50" fill="#000000"/>
+  
+  <!-- Subtle edge highlight -->
+  <rect x="75" y="75" width="450" height="450" rx="50" ry="50" fill="none" stroke="#333" stroke-width="1"/>
+  
+  <!-- ATAG logo -->
+  <text x="300" y="135" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#9a9a9a" text-anchor="middle" letter-spacing="3">ATAG</text>
+  
+  <!-- Time display -->
+  <text x="300" y="200" font-family="Arial, sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="300">14:37</text>
+  
+  <!-- Temperature display -->
+  <text x="300" y="310" font-family="Arial, sans-serif" font-size="120" font-weight="300" fill="#ffffff" text-anchor="middle">20.5</text>
+  
+  <!-- Left button circle with chevron -->
+  <circle cx="165" cy="435" r="35" fill="none" stroke="#555" stroke-width="2"/>
+  <path d="M175 420 L158 435 L175 450" stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Center button -->
+  <rect x="255" y="390" width="90" height="90" rx="10" ry="10" fill="#111"/>
+  
+  <!-- Cyan circle ring -->
+  <circle cx="300" cy="435" r="30" fill="none" stroke="#00d4ff" stroke-width="3" filter="url(#glow)"/>
+  
+  <!-- Blue square icon in center -->
+  <rect x="285" y="420" width="30" height="30" rx="4" ry="4" fill="#00a8e8"/>
+  
+  <!-- Right button circle with chevron -->
+  <circle cx="435" cy="435" r="35" fill="none" stroke="#555" stroke-width="2"/>
+  <path d="M425 420 L442 435 L425 450" stroke="#555" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Subtle corner highlights for depth -->
+  <path d="M125 85 Q85 85 85 125" stroke="#222" stroke-width="1" fill="none"/>
+</svg>

@@ -1,0 +1,44 @@
+{
+  "id": "pressure_above",
+  "title": {
+    "en": "Water pressure is !{{above|below}} threshold",
+    "nl": "Waterdruk is !{{hoger|lager}} dan drempelwaarde",
+    "de": "Wasserdruck ist !{{über|unter}} Schwellenwert",
+    "fr": "La pression d'eau est !{{au-dessus|en-dessous}} du seuil"
+  },
+  "titleFormatted": {
+    "en": "Water pressure is !{{above|below}} [[pressure]] bar",
+    "nl": "Waterdruk is !{{hoger|lager}} dan [[pressure]] bar",
+    "de": "Wasserdruck ist !{{über|unter}} [[pressure]] bar",
+    "fr": "La pression d'eau est !{{au-dessus|en-dessous}} de [[pressure]] bar"
+  },
+  "hint": {
+    "en": "Check if the water pressure is above or below a value",
+    "nl": "Controleer of de waterdruk hoger of lager is dan een waarde",
+    "de": "Prüfen ob der Wasserdruck über oder unter einem Wert liegt",
+    "fr": "Vérifier si la pression d'eau est au-dessus ou en-dessous d'une valeur"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    },
+    {
+      "type": "number",
+      "name": "pressure",
+      "title": {
+        "en": "Pressure (bar)",
+        "nl": "Druk (bar)",
+        "de": "Druck (bar)",
+        "fr": "Pression (bar)"
+      },
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "placeholder": {
+        "en": "1.0"
+      }
+    }
+  ]
+}

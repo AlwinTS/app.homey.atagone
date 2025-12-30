@@ -1,0 +1,136 @@
+<style type="text/css">
+  #atag-wrap {
+    height: 100%;
+  }
+
+  .atag-form-group {
+    margin-bottom: 1em;
+  }
+
+  #atag-connect {
+    margin-top: 1em;
+  }
+
+  .atag-hint {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+  }
+</style>
+
+<div id="atag-wrap">
+  <h2 data-i18n="pair.configure.title">ATAG One 2.0 Settings</h2>
+
+  <p data-i18n="pair.configure.description">Enter the connection details for your ATAG One thermostat.</p>
+
+  <div class="atag-form-group">
+    <label class="homey-form-label" for="ip_address" data-i18n="pair.configure.ip_address">IP Address</label>
+    <input
+      id="ip_address"
+      class="homey-form-input"
+      type="text"
+      placeholder="192.168.1.100"
+    />
+    <div class="atag-hint" data-i18n="pair.configure.ip_address_hint">The IP address of your ATAG One thermostat</div>
+  </div>
+
+  <div class="atag-form-group">
+    <label class="homey-form-label" for="mac_address" data-i18n="pair.configure.mac_address">MAC Address</label>
+    <input
+      id="mac_address"
+      class="homey-form-input"
+      type="text"
+      placeholder="AA:BB:CC:DD:EE:FF"
+    />
+    <div class="atag-hint" data-i18n="pair.configure.mac_address_hint">The MAC address of your ATAG One thermostat (used as unique identifier)</div>
+  </div>
+
+  <div class="atag-form-group">
+    <label class="homey-form-label" for="device_name" data-i18n="pair.configure.device_name">Device Name</label>
+    <input
+      id="device_name"
+      class="homey-form-input"
+      type="text"
+      placeholder="Homey"
+      value="Homey"
+    />
+    <div class="atag-hint" data-i18n="pair.configure.device_name_hint">This name will be shown on your thermostat when authorizing</div>
+  </div>
+
+  <div class="atag-form-group">
+    <label class="homey-form-label" for="email" data-i18n="pair.configure.email">Email Address</label>
+    <input
+      id="email"
+      class="homey-form-input"
+      type="text"
+      placeholder="your@email.com"
+    />
+    <div class="atag-hint" data-i18n="pair.configure.email_hint">Email address for ATAG One authentication</div>
+  </div>
+
+  <button
+    id="atag-connect"
+    class="homey-button-primary-shadow-full"
+    disabled="disabled"
+    data-i18n="pair.configure.connect"
+  >Connect</button>
+</div>
+
+<script type="text/javascript">
+  (function() {
+    var $ipAddress = document.getElementById('ip_address');
+    var $macAddress = document.getElementById('mac_address');
+    var $deviceName = document.getElementById('device_name');
+    var $email = document.getElementById('email');
+    var $connect = document.getElementById('atag-connect');
+
+    // Enable/disable connect button based on form validity
+    function validateForm() {
+      var isValid = $ipAddress.value.trim().length > 0
+        && $macAddress.value.trim().length > 0
+        && $deviceName.value.trim().length > 0
+        && $email.value.trim().length > 0;
+
+      if (isValid) {
+        $connect.removeAttribute('disabled');
+      } else {
+        $connect.setAttribute('disabled', 'disabled');
+      }
+    }
+
+    // Add validation listeners to all inputs
+    ['keyup', 'change', 'blur', 'paste'].forEach(function(event) {
+      $ipAddress.addEventListener(event, validateForm);
+      $macAddress.addEventListener(event, validateForm);
+      $deviceName.addEventListener(event, validateForm);
+      $email.addEventListener(event, validateForm);
+    });
+
+    // Initial validation check
+    validateForm();
+
+    // Handle connect button click
+    $connect.addEventListener('click', function() {
+      if ($connect.classList.contains('is-loading')) return;
+      $connect.classList.add('is-loading');
+
+      var data = {
+        ipAddress: $ipAddress.value.trim(),
+        macAddress: $macAddress.value.trim(),
+        deviceName: $deviceName.value.trim(),
+        email: $email.value.trim()
+      };
+
+      Homey.emit('configure', data)
+        .then(function(result) {
+          Homey.showView('list_devices');
+        })
+        .catch(function(err) {
+          Homey.alert(err.message || err || Homey.__('errors.connection_failed'));
+        })
+        .finally(function() {
+          $connect.classList.remove('is-loading');
+        });
+    });
+  })();
+</script>

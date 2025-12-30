@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:apps.developer.homey.app)",
+      "Bash(if not exist \"C:\\Users\\AlwinterStege\\repos prive\\app.homey.atagone\\drivers\\atagone\\assets\\images\" mkdir \"C:\\Users\\AlwinterStege\\repos prive\\app.homey.atagone\\drivers\\atagone\\assets\\images\")",
+      "Bash(cmd /c \"mkdir \"\"C:\\Users\\AlwinterStege\\repos prive\\app.homey.atagone\\drivers\\atagone\\assets\\images\"\" 2>nul || echo Directory exists\")",
+      "Bash(cmd /c \"mkdir \"\"C:\\Users\\AlwinterStege\\repos prive\\app.homey.atagone\\.homeycompose\\flow\\triggers\"\" 2>nul & mkdir \"\"C:\\Users\\AlwinterStege\\repos prive\\app.homey.atagone\\.homeycompose\\flow\\conditions\"\" 2>nul & mkdir \"\"C:\\Users\\AlwinterStege\\repos prive\\app.homey.atagone\\.homeycompose\\flow\\actions\"\" 2>nul & echo Done\")"
+    ]
+  }
+}

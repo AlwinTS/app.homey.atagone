@@ -1,0 +1,169 @@
+{
+  "name": {
+    "en": "ATAG One 2.0",
+    "nl": "ATAG One 2.0",
+    "de": "ATAG One 2.0",
+    "fr": "ATAG One 2.0"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "target_temperature",
+    "measure_temperature",
+    "measure_pressure",
+    "alarm_generic.boiler"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 4,
+      "max": 27,
+      "step": 0.5
+    },
+    "alarm_generic.boiler": {
+      "title": {
+        "en": "Boiler heating",
+        "nl": "Ketel verwarmt",
+        "de": "Kessel heizt",
+        "fr": "Chaudière chauffe"
+      },
+      "insightsTitleTrue": {
+        "en": "Boiler started heating",
+        "nl": "Ketel begonnen met verwarmen",
+        "de": "Kessel hat mit Heizen begonnen",
+        "fr": "Chaudière a commencé à chauffer"
+      },
+      "insightsTitleFalse": {
+        "en": "Boiler stopped heating",
+        "nl": "Ketel gestopt met verwarmen",
+        "de": "Kessel hat mit Heizen aufgehört",
+        "fr": "Chaudière a arrêté de chauffer"
+      }
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "pair": [
+    {
+      "id": "configure"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Connection Settings",
+        "nl": "Verbindingsinstellingen",
+        "de": "Verbindungseinstellungen",
+        "fr": "Paramètres de connexion"
+      },
+      "children": [
+        {
+          "id": "ip_address",
+          "type": "text",
+          "label": {
+            "en": "IP Address",
+            "nl": "IP-adres",
+            "de": "IP-Adresse",
+            "fr": "Adresse IP"
+          },
+          "value": "",
+          "hint": {
+            "en": "The IP address of your ATAG One thermostat",
+            "nl": "Het IP-adres van uw ATAG One thermostaat",
+            "de": "Die IP-Adresse Ihres ATAG One Thermostats",
+            "fr": "L'adresse IP de votre thermostat ATAG One"
+          }
+        },
+        {
+          "id": "mac_address",
+          "type": "label",
+          "label": {
+            "en": "MAC Address",
+            "nl": "MAC-adres",
+            "de": "MAC-Adresse",
+            "fr": "Adresse MAC"
+          },
+          "value": "",
+          "hint": {
+            "en": "The unique identifier of your ATAG One thermostat",
+            "nl": "De unieke identificatie van uw ATAG One thermostaat",
+            "de": "Die eindeutige Kennung Ihres ATAG One Thermostats",
+            "fr": "L'identifiant unique de votre thermostat ATAG One"
+          }
+        },
+        {
+          "id": "device_name",
+          "type": "text",
+          "label": {
+            "en": "Device Name",
+            "nl": "Apparaatnaam",
+            "de": "Gerätename",
+            "fr": "Nom de l'appareil"
+          },
+          "value": "Homey",
+          "hint": {
+            "en": "The name shown on your thermostat when authorizing",
+            "nl": "De naam die op uw thermostaat wordt getoond bij autorisatie",
+            "de": "Der Name, der auf Ihrem Thermostat bei der Autorisierung angezeigt wird",
+            "fr": "Le nom affiché sur votre thermostat lors de l'autorisation"
+          }
+        },
+        {
+          "id": "email",
+          "type": "text",
+          "label": {
+            "en": "Email Address",
+            "nl": "E-mailadres",
+            "de": "E-Mail-Adresse",
+            "fr": "Adresse e-mail"
+          },
+          "value": "",
+          "hint": {
+            "en": "Email address for ATAG One authentication",
+            "nl": "E-mailadres voor ATAG One authenticatie",
+            "de": "E-Mail-Adresse für ATAG One Authentifizierung",
+            "fr": "Adresse e-mail pour l'authentification ATAG One"
+          }
+        },
+        {
+          "id": "poll_interval",
+          "type": "number",
+          "label": {
+            "en": "Poll Interval (seconds)",
+            "nl": "Poll-interval (seconden)",
+            "de": "Abfrageintervall (Sekunden)",
+            "fr": "Intervalle de sondage (secondes)"
+          },
+          "value": 10,
+          "min": 10,
+          "max": 300,
+          "hint": {
+            "en": "How often to poll the thermostat for updates",
+            "nl": "Hoe vaak de thermostaat wordt geraadpleegd voor updates",
+            "de": "Wie oft der Thermostat auf Updates abgefragt wird",
+            "fr": "Fréquence de sondage du thermostat pour les mises à jour"
+          }
+        }
+      ]
+    }
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  }
+}

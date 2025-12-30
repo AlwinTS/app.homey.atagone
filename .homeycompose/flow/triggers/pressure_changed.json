@@ -1,0 +1,35 @@
+{
+  "id": "pressure_changed",
+  "title": {
+    "en": "The water pressure changed",
+    "nl": "De waterdruk is veranderd",
+    "de": "Der Wasserdruck hat sich geändert",
+    "fr": "La pression d'eau a changé"
+  },
+  "hint": {
+    "en": "When the boiler water pressure changes",
+    "nl": "Wanneer de ketelwaterdruk verandert",
+    "de": "Wenn sich der Kesselwasserdruck ändert",
+    "fr": "Quand la pression d'eau de la chaudière change"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "pressure",
+      "type": "number",
+      "title": {
+        "en": "Pressure (bar)",
+        "nl": "Druk (bar)",
+        "de": "Druck (bar)",
+        "fr": "Pression (bar)"
+      },
+      "example": 1.5
+    }
+  ]
+}

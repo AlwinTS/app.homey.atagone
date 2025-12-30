@@ -1,0 +1,22 @@
+{
+  "id": "boiler_stopped",
+  "title": {
+    "en": "The boiler stopped heating",
+    "nl": "De ketel is gestopt met verwarmen",
+    "de": "Der Kessel hat mit dem Heizen aufgehört",
+    "fr": "La chaudière a arrêté de chauffer"
+  },
+  "hint": {
+    "en": "When the boiler flame turns off",
+    "nl": "Wanneer de ketelbrander uitgaat",
+    "de": "Wenn die Kesselflamme ausgeht",
+    "fr": "Quand la flamme de la chaudière s'éteint"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    }
+  ]
+}

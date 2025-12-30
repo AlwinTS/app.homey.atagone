@@ -1,0 +1,22 @@
+{
+  "pair": {
+    "configure": {
+      "title": "Paramètres ATAG One 2.0",
+      "description": "Entrez les informations de connexion pour votre thermostat ATAG One.",
+      "ip_address": "Adresse IP",
+      "ip_address_hint": "L'adresse IP de votre thermostat ATAG One",
+      "mac_address": "Adresse MAC",
+      "mac_address_hint": "L'adresse MAC de votre thermostat ATAG One (utilisée comme identifiant unique)",
+      "device_name": "Nom de l'appareil",
+      "device_name_hint": "Ce nom sera affiché sur votre thermostat lors de l'autorisation",
+      "email": "Adresse e-mail",
+      "email_hint": "Adresse e-mail pour l'authentification ATAG One",
+      "connect": "Connecter"
+    }
+  },
+  "errors": {
+    "connection_failed": "Échec de la connexion",
+    "authorization_denied": "Autorisation refusée par le thermostat",
+    "authorization_pending": "Veuillez appuyer sur OUI sur votre thermostat ATAG One pour autoriser, puis réessayez"
+  }
+}

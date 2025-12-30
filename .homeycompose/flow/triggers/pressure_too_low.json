@@ -1,0 +1,57 @@
+{
+  "id": "pressure_too_low",
+  "title": {
+    "en": "The water pressure is too low",
+    "nl": "De waterdruk is te laag",
+    "de": "Der Wasserdruck ist zu niedrig",
+    "fr": "La pression d'eau est trop basse"
+  },
+  "titleFormatted": {
+    "en": "The water pressure drops below [[threshold]] bar",
+    "nl": "De waterdruk zakt onder [[threshold]] bar",
+    "de": "Der Wasserdruck fällt unter [[threshold]] bar",
+    "fr": "La pression d'eau descend sous [[threshold]] bar"
+  },
+  "hint": {
+    "en": "When the water pressure drops below the threshold",
+    "nl": "Wanneer de waterdruk onder de drempelwaarde zakt",
+    "de": "Wenn der Wasserdruck unter den Schwellenwert fällt",
+    "fr": "Quand la pression d'eau descend sous le seuil"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    },
+    {
+      "type": "number",
+      "name": "threshold",
+      "title": {
+        "en": "Threshold (bar)",
+        "nl": "Drempelwaarde (bar)",
+        "de": "Schwellenwert (bar)",
+        "fr": "Seuil (bar)"
+      },
+      "min": 0.5,
+      "max": 2.0,
+      "step": 0.1,
+      "placeholder": {
+        "en": "1.0"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "name": "pressure",
+      "type": "number",
+      "title": {
+        "en": "Pressure (bar)",
+        "nl": "Druk (bar)",
+        "de": "Druck (bar)",
+        "fr": "Pression (bar)"
+      },
+      "example": 0.8
+    }
+  ]
+}

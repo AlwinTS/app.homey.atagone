@@ -1,0 +1,60 @@
+{
+  "id": "set_temperature_duration",
+  "title": {
+    "en": "Set temperature for duration",
+    "nl": "Stel temperatuur in voor een tijdsduur",
+    "de": "Temperatur für Dauer einstellen",
+    "fr": "Régler la température pour une durée"
+  },
+  "titleFormatted": {
+    "en": "Set temperature to [[temperature]]°C for [[duration]] minutes",
+    "nl": "Stel temperatuur in op [[temperature]]°C voor [[duration]] minuten",
+    "de": "Temperatur auf [[temperature]]°C für [[duration]] Minuten einstellen",
+    "fr": "Régler la température à [[temperature]]°C pendant [[duration]] minutes"
+  },
+  "hint": {
+    "en": "Set the target temperature temporarily (boost mode)",
+    "nl": "Stel de temperatuur tijdelijk in (boost modus)",
+    "de": "Zieltemperatur vorübergehend einstellen (Boost-Modus)",
+    "fr": "Définir la température cible temporairement (mode boost)"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    },
+    {
+      "type": "number",
+      "name": "temperature",
+      "title": {
+        "en": "Temperature",
+        "nl": "Temperatuur",
+        "de": "Temperatur",
+        "fr": "Température"
+      },
+      "min": 4,
+      "max": 27,
+      "step": 0.5,
+      "placeholder": {
+        "en": "22"
+      }
+    },
+    {
+      "type": "number",
+      "name": "duration",
+      "title": {
+        "en": "Duration (minutes)",
+        "nl": "Duur (minuten)",
+        "de": "Dauer (Minuten)",
+        "fr": "Durée (minutes)"
+      },
+      "min": 5,
+      "max": 480,
+      "step": 5,
+      "placeholder": {
+        "en": "60"
+      }
+    }
+  ]
+}

@@ -1,0 +1,636 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "app.homey.atagone",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "ATAG One",
+    "nl": "ATAG One",
+    "de": "ATAG One",
+    "fr": "ATAG One"
+  },
+  "description": {
+    "en": "Control your ATAG One 2.0 thermostat",
+    "nl": "Bedien uw ATAG One 2.0 thermostaat",
+    "de": "Steuern Sie Ihren ATAG One 2.0 Thermostat",
+    "fr": "Contrôlez votre thermostat ATAG One 2.0"
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Alwin ter Stege",
+    "email": "alwin@terstege.info"
+  },
+  "brandColor": "#000000",
+  "flow": {
+    "triggers": [
+      {
+        "id": "boiler_started",
+        "title": {
+          "en": "The boiler started heating",
+          "nl": "De ketel is begonnen met verwarmen",
+          "de": "Der Kessel hat mit dem Heizen begonnen",
+          "fr": "La chaudière a commencé à chauffer"
+        },
+        "hint": {
+          "en": "When the boiler flame turns on for central heating",
+          "nl": "Wanneer de ketelbrander aangaat voor de verwarming",
+          "de": "Wenn die Kesselflamme für die Zentralheizung angeht",
+          "fr": "Quand la flamme de la chaudière s'allume pour le chauffage central"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ]
+      },
+      {
+        "id": "boiler_stopped",
+        "title": {
+          "en": "The boiler stopped heating",
+          "nl": "De ketel is gestopt met verwarmen",
+          "de": "Der Kessel hat mit dem Heizen aufgehört",
+          "fr": "La chaudière a arrêté de chauffer"
+        },
+        "hint": {
+          "en": "When the boiler flame turns off",
+          "nl": "Wanneer de ketelbrander uitgaat",
+          "de": "Wenn die Kesselflamme ausgeht",
+          "fr": "Quand la flamme de la chaudière s'éteint"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ]
+      },
+      {
+        "id": "pressure_changed",
+        "title": {
+          "en": "The water pressure changed",
+          "nl": "De waterdruk is veranderd",
+          "de": "Der Wasserdruck hat sich geändert",
+          "fr": "La pression d'eau a changé"
+        },
+        "hint": {
+          "en": "When the boiler water pressure changes",
+          "nl": "Wanneer de ketelwaterdruk verandert",
+          "de": "Wenn sich der Kesselwasserdruck ändert",
+          "fr": "Quand la pression d'eau de la chaudière change"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "pressure",
+            "type": "number",
+            "title": {
+              "en": "Pressure (bar)",
+              "nl": "Druk (bar)",
+              "de": "Druck (bar)",
+              "fr": "Pression (bar)"
+            },
+            "example": 1.5
+          }
+        ]
+      },
+      {
+        "id": "pressure_too_low",
+        "title": {
+          "en": "The water pressure is too low",
+          "nl": "De waterdruk is te laag",
+          "de": "Der Wasserdruck ist zu niedrig",
+          "fr": "La pression d'eau est trop basse"
+        },
+        "titleFormatted": {
+          "en": "The water pressure drops below [[threshold]] bar",
+          "nl": "De waterdruk zakt onder [[threshold]] bar",
+          "de": "Der Wasserdruck fällt unter [[threshold]] bar",
+          "fr": "La pression d'eau descend sous [[threshold]] bar"
+        },
+        "hint": {
+          "en": "When the water pressure drops below the threshold",
+          "nl": "Wanneer de waterdruk onder de drempelwaarde zakt",
+          "de": "Wenn der Wasserdruck unter den Schwellenwert fällt",
+          "fr": "Quand la pression d'eau descend sous le seuil"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          },
+          {
+            "type": "number",
+            "name": "threshold",
+            "title": {
+              "en": "Threshold (bar)",
+              "nl": "Drempelwaarde (bar)",
+              "de": "Schwellenwert (bar)",
+              "fr": "Seuil (bar)"
+            },
+            "min": 0.5,
+            "max": 2,
+            "step": 0.1,
+            "placeholder": {
+              "en": "1.0"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "pressure",
+            "type": "number",
+            "title": {
+              "en": "Pressure (bar)",
+              "nl": "Druk (bar)",
+              "de": "Druck (bar)",
+              "fr": "Pression (bar)"
+            },
+            "example": 0.8
+          }
+        ]
+      },
+      {
+        "id": "target_temperature_changed",
+        "title": {
+          "en": "The target temperature changed",
+          "nl": "De ingestelde temperatuur is veranderd",
+          "de": "Die Zieltemperatur hat sich geändert",
+          "fr": "La température cible a changé"
+        },
+        "hint": {
+          "en": "When the target temperature is adjusted",
+          "nl": "Wanneer de ingestelde temperatuur wordt aangepast",
+          "de": "Wenn die Zieltemperatur angepasst wird",
+          "fr": "Quand la température cible est ajustée"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Target temperature",
+              "nl": "Ingestelde temperatuur",
+              "de": "Zieltemperatur",
+              "fr": "Température cible"
+            },
+            "example": 21
+          }
+        ]
+      },
+      {
+        "id": "temperature_changed",
+        "title": {
+          "en": "The temperature changed",
+          "nl": "De temperatuur is veranderd",
+          "de": "Die Temperatur hat sich geändert",
+          "fr": "La température a changé"
+        },
+        "hint": {
+          "en": "When the room temperature changes",
+          "nl": "Wanneer de kamertemperatuur verandert",
+          "de": "Wenn sich die Raumtemperatur ändert",
+          "fr": "Quand la température ambiante change"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température"
+            },
+            "example": 21.5
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "boiler_heating",
+        "title": {
+          "en": "The boiler !{{is|is not}} heating",
+          "nl": "De ketel !{{is|is niet}} aan het verwarmen",
+          "de": "Der Kessel !{{heizt|heizt nicht}}",
+          "fr": "La chaudière !{{chauffe|ne chauffe pas}}"
+        },
+        "hint": {
+          "en": "Check if the boiler is currently active",
+          "nl": "Controleer of de ketel momenteel actief is",
+          "de": "Prüfen ob der Kessel gerade aktiv ist",
+          "fr": "Vérifier si la chaudière est actuellement active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ]
+      },
+      {
+        "id": "pressure_above",
+        "title": {
+          "en": "Water pressure is !{{above|below}} threshold",
+          "nl": "Waterdruk is !{{hoger|lager}} dan drempelwaarde",
+          "de": "Wasserdruck ist !{{über|unter}} Schwellenwert",
+          "fr": "La pression d'eau est !{{au-dessus|en-dessous}} du seuil"
+        },
+        "titleFormatted": {
+          "en": "Water pressure is !{{above|below}} [[pressure]] bar",
+          "nl": "Waterdruk is !{{hoger|lager}} dan [[pressure]] bar",
+          "de": "Wasserdruck ist !{{über|unter}} [[pressure]] bar",
+          "fr": "La pression d'eau est !{{au-dessus|en-dessous}} de [[pressure]] bar"
+        },
+        "hint": {
+          "en": "Check if the water pressure is above or below a value",
+          "nl": "Controleer of de waterdruk hoger of lager is dan een waarde",
+          "de": "Prüfen ob der Wasserdruck über oder unter einem Wert liegt",
+          "fr": "Vérifier si la pression d'eau est au-dessus ou en-dessous d'une valeur"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          },
+          {
+            "type": "number",
+            "name": "pressure",
+            "title": {
+              "en": "Pressure (bar)",
+              "nl": "Druk (bar)",
+              "de": "Druck (bar)",
+              "fr": "Pression (bar)"
+            },
+            "min": 0,
+            "max": 4,
+            "step": 0.1,
+            "placeholder": {
+              "en": "1.0"
+            }
+          }
+        ]
+      },
+      {
+        "id": "temperature_above",
+        "title": {
+          "en": "Temperature is !{{above|below}} threshold",
+          "nl": "Temperatuur is !{{hoger|lager}} dan drempelwaarde",
+          "de": "Temperatur ist !{{über|unter}} Schwellenwert",
+          "fr": "La température est !{{au-dessus|en-dessous}} du seuil"
+        },
+        "titleFormatted": {
+          "en": "Temperature is !{{above|below}} [[temperature]]°C",
+          "nl": "Temperatuur is !{{hoger|lager}} dan [[temperature]]°C",
+          "de": "Temperatur ist !{{über|unter}} [[temperature]]°C",
+          "fr": "La température est !{{au-dessus|en-dessous}} de [[temperature]]°C"
+        },
+        "hint": {
+          "en": "Check if the room temperature is above or below a value",
+          "nl": "Controleer of de kamertemperatuur hoger of lager is dan een waarde",
+          "de": "Prüfen ob die Raumtemperatur über oder unter einem Wert liegt",
+          "fr": "Vérifier si la température ambiante est au-dessus ou en-dessous d'une valeur"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température"
+            },
+            "min": 0,
+            "max": 40,
+            "step": 0.5,
+            "placeholder": {
+              "en": "20"
+            }
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "set_temperature",
+        "title": {
+          "en": "Set the temperature",
+          "nl": "Stel de temperatuur in",
+          "de": "Temperatur einstellen",
+          "fr": "Régler la température"
+        },
+        "titleFormatted": {
+          "en": "Set temperature to [[temperature]]°C",
+          "nl": "Stel temperatuur in op [[temperature]]°C",
+          "de": "Temperatur auf [[temperature]]°C einstellen",
+          "fr": "Régler la température à [[temperature]]°C"
+        },
+        "hint": {
+          "en": "Set the target temperature",
+          "nl": "Stel de gewenste temperatuur in",
+          "de": "Zieltemperatur einstellen",
+          "fr": "Définir la température cible"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température"
+            },
+            "min": 4,
+            "max": 27,
+            "step": 0.5,
+            "placeholder": {
+              "en": "21"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_temperature_duration",
+        "title": {
+          "en": "Set temperature for duration",
+          "nl": "Stel temperatuur in voor een tijdsduur",
+          "de": "Temperatur für Dauer einstellen",
+          "fr": "Régler la température pour une durée"
+        },
+        "titleFormatted": {
+          "en": "Set temperature to [[temperature]]°C for [[duration]] minutes",
+          "nl": "Stel temperatuur in op [[temperature]]°C voor [[duration]] minuten",
+          "de": "Temperatur auf [[temperature]]°C für [[duration]] Minuten einstellen",
+          "fr": "Régler la température à [[temperature]]°C pendant [[duration]] minutes"
+        },
+        "hint": {
+          "en": "Set the target temperature temporarily (boost mode)",
+          "nl": "Stel de temperatuur tijdelijk in (boost modus)",
+          "de": "Zieltemperatur vorübergehend einstellen (Boost-Modus)",
+          "fr": "Définir la température cible temporairement (mode boost)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "nl": "Temperatuur",
+              "de": "Temperatur",
+              "fr": "Température"
+            },
+            "min": 4,
+            "max": 27,
+            "step": 0.5,
+            "placeholder": {
+              "en": "22"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "title": {
+              "en": "Duration (minutes)",
+              "nl": "Duur (minuten)",
+              "de": "Dauer (Minuten)",
+              "fr": "Durée (minutes)"
+            },
+            "min": 5,
+            "max": 480,
+            "step": 5,
+            "placeholder": {
+              "en": "60"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "ATAG One 2.0",
+        "nl": "ATAG One 2.0",
+        "de": "ATAG One 2.0",
+        "fr": "ATAG One 2.0"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "target_temperature",
+        "measure_temperature",
+        "measure_pressure",
+        "alarm_generic.boiler"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 4,
+          "max": 27,
+          "step": 0.5
+        },
+        "alarm_generic.boiler": {
+          "title": {
+            "en": "Boiler heating",
+            "nl": "Ketel verwarmt",
+            "de": "Kessel heizt",
+            "fr": "Chaudière chauffe"
+          },
+          "insightsTitleTrue": {
+            "en": "Boiler started heating",
+            "nl": "Ketel begonnen met verwarmen",
+            "de": "Kessel hat mit Heizen begonnen",
+            "fr": "Chaudière a commencé à chauffer"
+          },
+          "insightsTitleFalse": {
+            "en": "Boiler stopped heating",
+            "nl": "Ketel gestopt met verwarmen",
+            "de": "Kessel hat mit Heizen aufgehört",
+            "fr": "Chaudière a arrêté de chauffer"
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "pair": [
+        {
+          "id": "configure"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Connection Settings",
+            "nl": "Verbindingsinstellingen",
+            "de": "Verbindungseinstellungen",
+            "fr": "Paramètres de connexion"
+          },
+          "children": [
+            {
+              "id": "ip_address",
+              "type": "text",
+              "label": {
+                "en": "IP Address",
+                "nl": "IP-adres",
+                "de": "IP-Adresse",
+                "fr": "Adresse IP"
+              },
+              "value": "",
+              "hint": {
+                "en": "The IP address of your ATAG One thermostat",
+                "nl": "Het IP-adres van uw ATAG One thermostaat",
+                "de": "Die IP-Adresse Ihres ATAG One Thermostats",
+                "fr": "L'adresse IP de votre thermostat ATAG One"
+              }
+            },
+            {
+              "id": "mac_address",
+              "type": "label",
+              "label": {
+                "en": "MAC Address",
+                "nl": "MAC-adres",
+                "de": "MAC-Adresse",
+                "fr": "Adresse MAC"
+              },
+              "value": "",
+              "hint": {
+                "en": "The unique identifier of your ATAG One thermostat",
+                "nl": "De unieke identificatie van uw ATAG One thermostaat",
+                "de": "Die eindeutige Kennung Ihres ATAG One Thermostats",
+                "fr": "L'identifiant unique de votre thermostat ATAG One"
+              }
+            },
+            {
+              "id": "device_name",
+              "type": "text",
+              "label": {
+                "en": "Device Name",
+                "nl": "Apparaatnaam",
+                "de": "Gerätename",
+                "fr": "Nom de l'appareil"
+              },
+              "value": "Homey",
+              "hint": {
+                "en": "The name shown on your thermostat when authorizing",
+                "nl": "De naam die op uw thermostaat wordt getoond bij autorisatie",
+                "de": "Der Name, der auf Ihrem Thermostat bei der Autorisierung angezeigt wird",
+                "fr": "Le nom affiché sur votre thermostat lors de l'autorisation"
+              }
+            },
+            {
+              "id": "email",
+              "type": "text",
+              "label": {
+                "en": "Email Address",
+                "nl": "E-mailadres",
+                "de": "E-Mail-Adresse",
+                "fr": "Adresse e-mail"
+              },
+              "value": "",
+              "hint": {
+                "en": "Email address for ATAG One authentication",
+                "nl": "E-mailadres voor ATAG One authenticatie",
+                "de": "E-Mail-Adresse für ATAG One Authentifizierung",
+                "fr": "Adresse e-mail pour l'authentification ATAG One"
+              }
+            },
+            {
+              "id": "poll_interval",
+              "type": "number",
+              "label": {
+                "en": "Poll Interval (seconds)",
+                "nl": "Poll-interval (seconden)",
+                "de": "Abfrageintervall (Sekunden)",
+                "fr": "Intervalle de sondage (secondes)"
+              },
+              "value": 10,
+              "min": 10,
+              "max": 300,
+              "hint": {
+                "en": "How often to poll the thermostat for updates",
+                "nl": "Hoe vaak de thermostaat wordt geraadpleegd voor updates",
+                "de": "Wie oft der Thermostat auf Updates abgefragt wird",
+                "fr": "Fréquence de sondage du thermostat pour les mises à jour"
+              }
+            }
+          ]
+        }
+      ],
+      "images": {
+        "small": "/drivers/atagone/assets/images/small.png",
+        "large": "/drivers/atagone/assets/images/large.png",
+        "xlarge": "/drivers/atagone/assets/images/xlarge.png"
+      },
+      "id": "atagone"
+    }
+  ]
+}

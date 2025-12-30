@@ -1,0 +1,22 @@
+{
+  "id": "boiler_started",
+  "title": {
+    "en": "The boiler started heating",
+    "nl": "De ketel is begonnen met verwarmen",
+    "de": "Der Kessel hat mit dem Heizen begonnen",
+    "fr": "La chaudière a commencé à chauffer"
+  },
+  "hint": {
+    "en": "When the boiler flame turns on for central heating",
+    "nl": "Wanneer de ketelbrander aangaat voor de verwarming",
+    "de": "Wenn die Kesselflamme für die Zentralheizung angeht",
+    "fr": "Quand la flamme de la chaudière s'allume pour le chauffage central"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    }
+  ]
+}

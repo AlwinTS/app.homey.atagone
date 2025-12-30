@@ -1,0 +1,22 @@
+{
+  "pair": {
+    "configure": {
+      "title": "ATAG One 2.0 Instellingen",
+      "description": "Voer de verbindingsgegevens in voor uw ATAG One thermostaat.",
+      "ip_address": "IP-adres",
+      "ip_address_hint": "Het IP-adres van uw ATAG One thermostaat",
+      "mac_address": "MAC-adres",
+      "mac_address_hint": "Het MAC-adres van uw ATAG One thermostaat (gebruikt als unieke identificatie)",
+      "device_name": "Apparaatnaam",
+      "device_name_hint": "Deze naam wordt getoond op uw thermostaat bij autorisatie",
+      "email": "E-mailadres",
+      "email_hint": "E-mailadres voor ATAG One authenticatie",
+      "connect": "Verbinden"
+    }
+  },
+  "errors": {
+    "connection_failed": "Verbinding mislukt",
+    "authorization_denied": "Autorisatie geweigerd door thermostaat",
+    "authorization_pending": "Druk op JA op uw ATAG One thermostaat om te autoriseren en probeer het opnieuw"
+  }
+}

@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Homey build output
+.homeybuild/
+
+# Environment and secrets
+env.json
+CLAUDE.md
+*.env
+.env.local
+.env.*.local
+
+# IDE and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript build output (if outputting to separate folder)
+dist/
+
+# Test coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Package manager lock files (optional - remove if you want to track these)
+# package-lock.json
+# yarn.lock

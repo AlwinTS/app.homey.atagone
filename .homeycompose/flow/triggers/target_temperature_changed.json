@@ -1,0 +1,35 @@
+{
+  "id": "target_temperature_changed",
+  "title": {
+    "en": "The target temperature changed",
+    "nl": "De ingestelde temperatuur is veranderd",
+    "de": "Die Zieltemperatur hat sich geändert",
+    "fr": "La température cible a changé"
+  },
+  "hint": {
+    "en": "When the target temperature is adjusted",
+    "nl": "Wanneer de ingestelde temperatuur wordt aangepast",
+    "de": "Wenn die Zieltemperatur angepasst wird",
+    "fr": "Quand la température cible est ajustée"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "temperature",
+      "type": "number",
+      "title": {
+        "en": "Target temperature",
+        "nl": "Ingestelde temperatuur",
+        "de": "Zieltemperatur",
+        "fr": "Température cible"
+      },
+      "example": 21.0
+    }
+  ]
+}

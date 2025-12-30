@@ -1,0 +1,35 @@
+{
+  "id": "app.homey.atagone",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "ATAG One",
+    "nl": "ATAG One",
+    "de": "ATAG One",
+    "fr": "ATAG One"
+  },
+  "description": {
+    "en": "Control your ATAG One 2.0 thermostat",
+    "nl": "Bedien uw ATAG One 2.0 thermostaat",
+    "de": "Steuern Sie Ihren ATAG One 2.0 Thermostat",
+    "fr": "Contrôlez votre thermostat ATAG One 2.0"
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Alwin ter Stege",
+    "email": "alwin@terstege.info"
+  },
+  "brandColor": "#000000"
+}

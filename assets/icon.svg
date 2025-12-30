@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <!-- Simulating 30 degree Y-axis rotation with perspective -->
+  <g transform="translate(300, 300) scale(0.866, 1) skewY(8) translate(-300, -300)">
+    <!-- Main body outline -->
+    <rect x="100" y="100" width="400" height="400" rx="45" ry="45" fill="none" stroke="#000000" stroke-width="7"/>
+    
+    <!-- ATAG logo -->
+    <text x="300" y="155" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#000000" text-anchor="middle" letter-spacing="3">ATAG</text>
+    
+    <!-- Time display -->
+    <text x="300" y="215" font-family="Arial, sans-serif" font-size="26" fill="#000000" text-anchor="middle" font-weight="400">14:37</text>
+    
+    <!-- Temperature display -->
+    <text x="300" y="320" font-family="Arial, sans-serif" font-size="105" font-weight="300" fill="#000000" text-anchor="middle">20.5</text>
+    
+    <!-- Left button circle with chevron -->
+    <circle cx="175" cy="420" r="33" fill="none" stroke="#000000" stroke-width="4"/>
+    <path d="M185 403 L165 420 L185 437" stroke="#000000" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Center button square outline -->
+    <rect x="258" y="378" width="84" height="84" rx="10" ry="10" fill="none" stroke="#000000" stroke-width="4"/>
+    
+    <!-- Circle ring in center -->
+    <circle cx="300" cy="420" r="27" fill="none" stroke="#000000" stroke-width="4"/>
+    
+    <!-- Square icon in center -->
+    <rect x="286" y="406" width="28" height="28" rx="4" ry="4" fill="#000000"/>
+    
+    <!-- Right button circle with chevron -->
+    <circle cx="425" cy="420" r="33" fill="none" stroke="#000000" stroke-width="4"/>
+    <path d="M415 403 L435 420 L415 437" stroke="#000000" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
