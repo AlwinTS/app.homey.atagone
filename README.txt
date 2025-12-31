@@ -53,26 +53,6 @@ CAPABILITIES
 - Water pressure (mbar)
 - Boiler heating status
 
-FLOW CARDS
-----------
-
-Triggers (When...):
-- The temperature changed
-- The target temperature changed
-- The water pressure changed
-- The water pressure is too low
-- The boiler started heating
-- The boiler stopped heating
-
-Conditions (And...):
-- Temperature is above/below threshold
-- The boiler is/is not heating
-- Water pressure is above/below threshold
-
-Actions (Then...):
-- Set the temperature
-- Set temperature for duration (boost mode)
-
 LANGUAGES
 ---------
 - English

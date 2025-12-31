@@ -1,5 +1,5 @@
 {
-  "id": "app.homey.atagone",
+  "id": "info.terstege.atagone",
   "version": "1.0.0",
   "compatibility": ">=12.4.0",
   "sdk": 3,
@@ -32,11 +32,11 @@
     "email": "alwin@terstege.info"
   },
   "brandColor": "#000000",
-  "source": "https://github.com/AlwinTS/app.homey.atagone/",
+  "source": "https://github.com/AlwinTS/info.terstege.atagone/",
   "support": "mailto://alwin@terstege.info",
-  "homepage": "https://github.com/AlwinTS/app.homey.atagone",
+  "homepage": "https://github.com/AlwinTS/info.terstege.atagone",
   "homeyCommunityTopicId": 148156,
   "bugs": {
-    "url": "https://github.com/AlwinTS/app.homey.atagone/issues"
+    "url": "https://github.com/AlwinTS/info.terstege.atagone/issues"
   }
 }
