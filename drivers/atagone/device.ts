@@ -70,7 +70,7 @@ module.exports = class AtagOneDevice extends Homey.Device {
   }
 
   private async ensureCapabilities() {
-    const requiredCapabilities = ['measure_pressure', 'alarm_generic.boiler'];
+    const requiredCapabilities = ['measure_pressure', 'alarm_generic.boiler', 'outside_temperature'];
 
     for (const capability of requiredCapabilities) {
       if (!this.hasCapability(capability)) {
@@ -246,6 +246,14 @@ module.exports = class AtagOneDevice extends Homey.Device {
         await this.targetTemperatureChangedTrigger.trigger(this, { temperature: data.targetTemperature });
       }
       this.prevTargetTemp = data.targetTemperature;
+    }
+
+    // Outside temperature
+    if (data.outsideTemperature !== undefined) {
+      this.log('Setting outside temperature:', data.outsideTemperature);
+      await this.setCapabilityValue('outside_temperature', data.outsideTemperature);
+    } else {
+      this.log('Outside temperature not available from thermostat');
     }
 
     // Water pressure

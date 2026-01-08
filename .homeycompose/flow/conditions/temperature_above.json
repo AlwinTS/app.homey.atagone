@@ -1,0 +1,44 @@
+{
+  "id": "temperature_above",
+  "title": {
+    "en": "The temperature is !{{above|below}} a value",
+    "nl": "De temperatuur is !{{boven|onder}} een waarde",
+    "de": "Die Temperatur ist !{{über|unter}} einem Wert",
+    "fr": "La température est !{{au-dessus|en-dessous}} d'une valeur"
+  },
+  "titleFormatted": {
+    "en": "The temperature is !{{above|below}} [[temperature]] °C",
+    "nl": "De temperatuur is !{{boven|onder}} [[temperature]] °C",
+    "de": "Die Temperatur ist !{{über|unter}} [[temperature]] °C",
+    "fr": "La température est !{{au-dessus|en-dessous}} de [[temperature]] °C"
+  },
+  "hint": {
+    "en": "Check if the room temperature is above a specified value",
+    "nl": "Controleer of de kamertemperatuur boven een bepaalde waarde is",
+    "de": "Prüfen, ob die Raumtemperatur über einem bestimmten Wert liegt",
+    "fr": "Vérifier si la température ambiante est au-dessus d'une valeur spécifiée"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    },
+    {
+      "type": "number",
+      "name": "temperature",
+      "title": {
+        "en": "Temperature (°C)",
+        "nl": "Temperatuur (°C)",
+        "de": "Temperatur (°C)",
+        "fr": "Température (°C)"
+      },
+      "min": 4,
+      "max": 35,
+      "step": 0.5,
+      "placeholder": {
+        "en": "20"
+      }
+    }
+  ]
+}

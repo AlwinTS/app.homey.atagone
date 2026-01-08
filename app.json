@@ -43,6 +43,50 @@
   "flow": {
     "triggers": [
       {
+        "id": "boiler_started",
+        "title": {
+          "en": "The boiler started heating",
+          "nl": "De ketel is begonnen met verwarmen",
+          "de": "Der Kessel hat mit dem Heizen begonnen",
+          "fr": "La chaudière a commencé à chauffer"
+        },
+        "hint": {
+          "en": "When the boiler starts heating",
+          "nl": "Wanneer de ketel begint met verwarmen",
+          "de": "Wenn der Kessel mit dem Heizen beginnt",
+          "fr": "Quand la chaudière commence à chauffer"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ]
+      },
+      {
+        "id": "boiler_stopped",
+        "title": {
+          "en": "The boiler stopped heating",
+          "nl": "De ketel is gestopt met verwarmen",
+          "de": "Der Kessel hat aufgehört zu heizen",
+          "fr": "La chaudière a arrêté de chauffer"
+        },
+        "hint": {
+          "en": "When the boiler stops heating",
+          "nl": "Wanneer de ketel stopt met verwarmen",
+          "de": "Wenn der Kessel aufhört zu heizen",
+          "fr": "Quand la chaudière arrête de chauffer"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ]
+      },
+      {
         "id": "pressure_changed",
         "title": {
           "en": "The water pressure changed",
@@ -133,9 +177,101 @@
             "example": 0.8
           }
         ]
+      },
+      {
+        "id": "target_temperature_changed",
+        "title": {
+          "en": "The target temperature changed",
+          "nl": "De doeltemperatuur is veranderd",
+          "de": "Die Zieltemperatur hat sich geändert",
+          "fr": "La température cible a changé"
+        },
+        "hint": {
+          "en": "When the target temperature changes",
+          "nl": "Wanneer de doeltemperatuur verandert",
+          "de": "Wenn sich die Zieltemperatur ändert",
+          "fr": "Quand la température cible change"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature (°C)",
+              "nl": "Temperatuur (°C)",
+              "de": "Temperatur (°C)",
+              "fr": "Température (°C)"
+            },
+            "example": 21
+          }
+        ]
+      },
+      {
+        "id": "temperature_changed",
+        "title": {
+          "en": "The temperature changed",
+          "nl": "De temperatuur is veranderd",
+          "de": "Die Temperatur hat sich geändert",
+          "fr": "La température a changé"
+        },
+        "hint": {
+          "en": "When the room temperature changes",
+          "nl": "Wanneer de kamertemperatuur verandert",
+          "de": "Wenn sich die Raumtemperatur ändert",
+          "fr": "Quand la température ambiante change"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature (°C)",
+              "nl": "Temperatuur (°C)",
+              "de": "Temperatur (°C)",
+              "fr": "Température (°C)"
+            },
+            "example": 20.5
+          }
+        ]
       }
     ],
     "conditions": [
+      {
+        "id": "boiler_heating",
+        "title": {
+          "en": "The boiler !{{is|is not}} heating",
+          "nl": "De ketel !{{is|is niet}} aan het verwarmen",
+          "de": "Der Kessel !{{heizt|heizt nicht}}",
+          "fr": "La chaudière !{{chauffe|ne chauffe pas}}"
+        },
+        "hint": {
+          "en": "Check if the boiler is currently heating",
+          "nl": "Controleer of de ketel momenteel aan het verwarmen is",
+          "de": "Prüfen, ob der Kessel gerade heizt",
+          "fr": "Vérifier si la chaudière est en train de chauffer"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          }
+        ]
+      },
       {
         "id": "pressure_above",
         "title": {
@@ -179,9 +315,97 @@
             }
           }
         ]
+      },
+      {
+        "id": "temperature_above",
+        "title": {
+          "en": "The temperature is !{{above|below}} a value",
+          "nl": "De temperatuur is !{{boven|onder}} een waarde",
+          "de": "Die Temperatur ist !{{über|unter}} einem Wert",
+          "fr": "La température est !{{au-dessus|en-dessous}} d'une valeur"
+        },
+        "titleFormatted": {
+          "en": "The temperature is !{{above|below}} [[temperature]] °C",
+          "nl": "De temperatuur is !{{boven|onder}} [[temperature]] °C",
+          "de": "Die Temperatur ist !{{über|unter}} [[temperature]] °C",
+          "fr": "La température est !{{au-dessus|en-dessous}} de [[temperature]] °C"
+        },
+        "hint": {
+          "en": "Check if the room temperature is above a specified value",
+          "nl": "Controleer of de kamertemperatuur boven een bepaalde waarde is",
+          "de": "Prüfen, ob die Raumtemperatur über einem bestimmten Wert liegt",
+          "fr": "Vérifier si la température ambiante est au-dessus d'une valeur spécifiée"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature (°C)",
+              "nl": "Temperatuur (°C)",
+              "de": "Temperatur (°C)",
+              "fr": "Température (°C)"
+            },
+            "min": 4,
+            "max": 35,
+            "step": 0.5,
+            "placeholder": {
+              "en": "20"
+            }
+          }
+        ]
       }
     ],
     "actions": [
+      {
+        "id": "set_temperature",
+        "title": {
+          "en": "Set the temperature",
+          "nl": "Stel de temperatuur in",
+          "de": "Temperatur einstellen",
+          "fr": "Régler la température"
+        },
+        "titleFormatted": {
+          "en": "Set the temperature to [[temperature]] °C",
+          "nl": "Stel de temperatuur in op [[temperature]] °C",
+          "de": "Temperatur auf [[temperature]] °C einstellen",
+          "fr": "Régler la température à [[temperature]] °C"
+        },
+        "hint": {
+          "en": "Set the target temperature",
+          "nl": "Stel de doeltemperatuur in",
+          "de": "Zieltemperatur einstellen",
+          "fr": "Régler la température cible"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=atagone"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature (°C)",
+              "nl": "Temperatuur (°C)",
+              "de": "Temperatur (°C)",
+              "fr": "Température (°C)"
+            },
+            "min": 4,
+            "max": 27,
+            "step": 0.5,
+            "placeholder": {
+              "en": "20"
+            }
+          }
+        ]
+      },
       {
         "id": "set_temperature_duration",
         "title": {
@@ -256,6 +480,7 @@
       "capabilities": [
         "target_temperature",
         "measure_temperature",
+        "outside_temperature",
         "measure_pressure",
         "alarm_generic.boiler"
       ],
@@ -415,5 +640,35 @@
       },
       "id": "atagone"
     }
-  ]
+  ],
+  "capabilities": {
+    "outside_temperature": {
+      "type": "number",
+      "title": {
+        "en": "Outside temperature",
+        "nl": "Buitentemperatuur",
+        "de": "Außentemperatur",
+        "fr": "Température extérieure"
+      },
+      "units": {
+        "en": "°C",
+        "nl": "°C",
+        "de": "°C",
+        "fr": "°C"
+      },
+      "insights": true,
+      "desc": {
+        "en": "The outside temperature in degrees Celsius",
+        "nl": "De buitentemperatuur in graden Celsius",
+        "de": "Die Außentemperatur in Grad Celsius",
+        "fr": "La température extérieure en degrés Celsius"
+      },
+      "chartType": "spline",
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/outside_temperature.svg"
+    }
+  }
 }

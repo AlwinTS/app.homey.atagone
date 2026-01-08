@@ -1,0 +1,22 @@
+{
+  "id": "boiler_heating",
+  "title": {
+    "en": "The boiler !{{is|is not}} heating",
+    "nl": "De ketel !{{is|is niet}} aan het verwarmen",
+    "de": "Der Kessel !{{heizt|heizt nicht}}",
+    "fr": "La chaudière !{{chauffe|ne chauffe pas}}"
+  },
+  "hint": {
+    "en": "Check if the boiler is currently heating",
+    "nl": "Controleer of de ketel momenteel aan het verwarmen is",
+    "de": "Prüfen, ob der Kessel gerade heizt",
+    "fr": "Vérifier si la chaudière est en train de chauffer"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    }
+  ]
+}

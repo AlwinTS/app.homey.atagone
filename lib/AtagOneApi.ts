@@ -321,11 +321,14 @@ export class AtagOneApi {
 
     const boilerStatus = reply.report?.boiler_status ?? 0;
 
+    // Outside temperature: prefer weather_temp (from weather service), fall back to outside_temp sensor
+    const outsideTemp = reply.control?.weather_temp ?? reply.report?.outside_temp;
+
     return {
       deviceId: reply.status?.device_id,
       roomTemperature: reply.report?.room_temp,
       targetTemperature: reply.control?.ch_mode_temp,
-      outsideTemperature: reply.report?.outside_temp,
+      outsideTemperature: outsideTemp,
       waterPressure: reply.report?.ch_water_pres,
       boilerHeating: (boilerStatus & 8) !== 0, // CH heating
       hotWaterActive: (boilerStatus & 4) !== 0, // DHW active

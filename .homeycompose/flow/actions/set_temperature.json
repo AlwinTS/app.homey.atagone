@@ -1,0 +1,44 @@
+{
+  "id": "set_temperature",
+  "title": {
+    "en": "Set the temperature",
+    "nl": "Stel de temperatuur in",
+    "de": "Temperatur einstellen",
+    "fr": "Régler la température"
+  },
+  "titleFormatted": {
+    "en": "Set the temperature to [[temperature]] °C",
+    "nl": "Stel de temperatuur in op [[temperature]] °C",
+    "de": "Temperatur auf [[temperature]] °C einstellen",
+    "fr": "Régler la température à [[temperature]] °C"
+  },
+  "hint": {
+    "en": "Set the target temperature",
+    "nl": "Stel de doeltemperatuur in",
+    "de": "Zieltemperatur einstellen",
+    "fr": "Régler la température cible"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=atagone"
+    },
+    {
+      "type": "number",
+      "name": "temperature",
+      "title": {
+        "en": "Temperature (°C)",
+        "nl": "Temperatuur (°C)",
+        "de": "Temperatur (°C)",
+        "fr": "Température (°C)"
+      },
+      "min": 4,
+      "max": 27,
+      "step": 0.5,
+      "placeholder": {
+        "en": "20"
+      }
+    }
+  ]
+}

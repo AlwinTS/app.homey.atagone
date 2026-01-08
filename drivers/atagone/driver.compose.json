@@ -9,6 +9,7 @@
   "capabilities": [
     "target_temperature",
     "measure_temperature",
+    "outside_temperature",
     "measure_pressure",
     "alarm_generic.boiler"
   ],

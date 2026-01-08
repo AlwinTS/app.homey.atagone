@@ -1,0 +1,28 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Outside temperature",
+    "nl": "Buitentemperatuur",
+    "de": "Außentemperatur",
+    "fr": "Température extérieure"
+  },
+  "units": {
+    "en": "°C",
+    "nl": "°C",
+    "de": "°C",
+    "fr": "°C"
+  },
+  "insights": true,
+  "desc": {
+    "en": "The outside temperature in degrees Celsius",
+    "nl": "De buitentemperatuur in graden Celsius",
+    "de": "Die Außentemperatur in Grad Celsius",
+    "fr": "La température extérieure en degrés Celsius"
+  },
+  "chartType": "spline",
+  "decimals": 1,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/outside_temperature.svg"
+}
